@@ -5,16 +5,18 @@
   /* Brand Colors */
   --color-primary: #0085B3;
   --color-accent: #FF8600;
-  --color-gray: #808080;
+  --color-gray: #4A4A4A;
+  /* Darker gray for better readability */
+  --color-gray-light: #808080;
   --color-white: #FFFFFF;
   --color-footer-dark-1: #0B1F2A;
   --color-footer-dark-2: #06141C;
-  
+
   /* Background Colors */
   --color-bg-light: #F8F9FA;
   --color-bg-gradient-start: #E8F4F8;
   --color-bg-gradient-end: #F0F8FB;
-  
+
   /* Typography */
   --font-montserrat: var(--font-montserrat-custom);
 }
@@ -25,29 +27,35 @@
   --color-accent-orange: var(--color-accent);
   --color-gray-text: var(--color-gray);
   --color-white: var(--color-white);
-  
+
   /* Font Family */
   --font-sans: var(--font-montserrat);
-  
+
   /* Font Sizes */
   --font-size-h1-desktop: 60px;
   --font-size-h1-mobile: 40px;
-  --font-size-h2: 24px;
-  --font-size-body: 13px;
-  --font-size-small: 12px;
-  
+  --font-size-h2: 36px;
+  --font-size-h2-mobile: 28px;
+  --font-size-body: 16px;
+  /* Increased for better readability */
+  --font-size-small: 14px;
+
   /* Spacing */
-  --spacing-section: 80px;
-  --spacing-section-mobile: 48px;
-  
+  --spacing-section: 112px;
+  /* py-28 */
+  --spacing-section-mobile: 64px;
+  /* py-16 */
+
   /* Border Radius */
-  --radius-card: 20px;
+  --radius-card: 16px;
+  /* rounded-2xl */
   --radius-button: 8px;
   --radius-circle: 50%;
-  
+
   /* Shadows */
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  /* Softer shadow */
+  --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -65,16 +73,25 @@ body {
   color: var(--color-gray);
   font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: var(--font-size-body);
-  font-weight: 500;
-  line-height: 1.6;
+  font-weight: 400;
+  /* Regular body weight */
+  line-height: 1.7;
+  /* Increased line height */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--color-primary);
+  letter-spacing: -0.02em;
+  /* Tighter headings */
 }
 
 h1 {
@@ -82,12 +99,18 @@ h1 {
 }
 
 h2 {
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-h2-mobile);
+  font-weight: 600;
+  /* Lighter H2 as requested */
 }
 
 @media (min-width: 768px) {
   h1 {
     font-size: var(--font-size-h1-desktop);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
   }
 }
 
@@ -102,4 +125,13 @@ h2 {
 
 .bg-gradient-light {
   background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+}
+
+.container-custom {
+  max-width: 80rem;
+  /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

@@ -18,24 +18,24 @@ export const Button: React.FC<ButtonProps> = ({
     className = "",
 }) => {
     const baseStyles =
-        "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 cursor-pointer";
+        "inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
-    const variantStyles = {
+    const variants = {
         primary:
-            "bg-[var(--color-accent)] text-white hover:bg-[#E67700] hover:shadow-lg hover:scale-105",
+            "bg-[var(--color-accent-orange)] text-white hover:bg-[#E57600] focus:ring-[#FF8600] shadow-md hover:shadow-lg",
         secondary:
-            "bg-[var(--color-primary)] text-white hover:bg-[#006E94] hover:shadow-lg hover:scale-105",
+            "bg-white text-[var(--color-primary-blue)] border-2 border-[var(--color-primary-blue)] hover:bg-gray-50 focus:ring-[#0085B3]",
         outline:
-            "border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white",
+            "bg-transparent text-white border-2 border-white hover:bg-white/10 focus:ring-white",
     };
 
-    const sizeStyles = {
-        sm: "px-4 py-2 text-xs",
-        md: "px-6 py-3 text-sm",
-        lg: "px-8 py-4 text-base",
+    const sizes = {
+        sm: "px-4 py-2 text-sm",
+        md: "px-6 py-3 text-base",
+        lg: "px-8 py-4 text-lg",
     };
 
-    const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+    const combinedStyles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
     if (href) {
         return (

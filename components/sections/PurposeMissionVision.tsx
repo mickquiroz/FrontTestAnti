@@ -22,30 +22,30 @@ export const PurposeMissionVision: React.FC = () => {
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={staggerContainer}
-                className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16"
             >
                 {siteData.purposeMissionVision.map((item) => (
                     <motion.div key={item.id} variants={staggerItem}>
-                        <Card hover className="h-full text-center">
+                        <Card hover className="h-full text-center shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] border-none p-8">
                             {/* Circular Image */}
-                            <div className="flex justify-center mb-6">
-                                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-[var(--color-primary)]">
+                            <div className="flex justify-center mb-8">
+                                <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-cover transition-transform duration-500 hover:scale-110"
                                     />
                                 </div>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-[var(--color-primary)] mb-4">
+                            <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-4">
                                 {item.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-[var(--color-gray)] leading-relaxed">
+                            <p className="text-[var(--color-gray)] leading-relaxed text-base">
                                 {item.description}
                             </p>
                         </Card>

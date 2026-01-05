@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "@/components/ui/Container";
 
 interface SectionContainerProps {
     children: React.ReactNode;
@@ -22,11 +23,11 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
     return (
         <section
             id={id}
-            className={`py-16 md:py-20 ${backgroundStyles[background]} ${className}`}
+            className={`py-16 md:py-20 w-full ${backgroundStyles[background]} ${className}`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 {children}
-            </div>
+            </Container>
         </section>
     );
 };
