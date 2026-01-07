@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { siteData } from "@/lib/constants/siteData";
 import { Card } from "@/components/ui/Card";
-import { IconCircle } from "@/components/ui/IconCircle";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import {
     FaMedal,

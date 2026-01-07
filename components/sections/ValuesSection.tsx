@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { siteData } from "@/lib/constants/siteData";
 import { Card } from "@/components/ui/Card";
-import { IconCircle } from "@/components/ui/IconCircle";
 import { Container } from "@/components/ui/Container";
 import {
     FaStar,
@@ -34,52 +33,55 @@ export const ValuesSection: React.FC = () => {
     const { title, titleHighlight, items } = siteData.values;
 
     return (
-        <section className="relative py-20 md:py-28 overflow-hidden w-full" id="valores">
-            {/* Split Background - Full Bleed */}
-            <div className="absolute inset-0 flex flex-col md:flex-row h-full">
-                {/* Left Blue Block - 35% width on desktop */}
-                <div className="w-full md:w-[35%] bg-[var(--color-primary)] h-[300px] md:h-full relative overflow-hidden">
-                    {/* Decorative circle for depth */}
-                    <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <section className="relative py-20 md:py-28 w-full overflow-hidden" id="valores">
+            {/* Background Layer */}
+            <div className="absolute inset-0 flex flex-col lg:flex-row h-full">
+                {/* Left Blue Block - 50% width on desktop for balance */}
+                <div className="w-full lg:w-1/2 bg-[var(--color-primary)] h-[300px] lg:h-full relative overflow-hidden">
+                    {/* Subtle pattern instead of interfering blob */}
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--color-white),_transparent_70%)]"></div>
                 </div>
-                {/* Right Light Gradient - 65% width on desktop */}
-                <div className="w-full md:w-[65%] bg-gradient-light h-full"></div>
+                {/* Right Light Gradient */}
+                <div className="w-full lg:w-1/2 bg-gradient-light h-full"></div>
             </div>
 
-            {/* Content - Centered */}
+            {/* Content Layer */}
             <Container className="relative z-10 h-full">
-                <div className="flex flex-col md:flex-row md:gap-12 lg:gap-20 h-full">
+                <div className="flex flex-col lg:flex-row h-full">
 
-                    {/* Title Section (Left Column) - Positioned over the blue bg */}
-                    <div className="w-full md:w-[30%] flex flex-col justify-start pt-10 md:pt-20 mb-12 md:mb-0">
+                    {/* Left Column: Title & Intro */}
+                    <div className="flex-1 flex flex-col justify-center pt-8 lg:pt-0 lg:pr-16">
                         <motion.div
                             ref={ref}
                             initial={{ opacity: 0, x: -30 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="sticky top-24"
                         >
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                                 <span className="text-white block mb-2">{title}</span>
                                 <span className="text-[var(--color-accent)]">{titleHighlight}</span>
                             </h2>
-                            <div className="w-20 h-1.5 bg-[var(--color-accent)] mt-8 rounded-full"></div>
+                            <div className="w-24 h-2 bg-[var(--color-accent)] mt-8 rounded-full shadow-lg"></div>
+
+                            <p className="mt-8 text-white/90 text-lg leading-relaxed font-medium max-w-sm">
+                                Guiamos nuestro trabajo con principios sólidos que garantizan resultados excepcionales.
+                            </p>
                         </motion.div>
                     </div>
 
-                    {/* Cards Grid (Right Column) - Positioned over the light bg */}
-                    <div className="w-full md:w-[70%]">
+                    {/* Right Column: Cards Grid */}
+                    <div className="flex-1 lg:pl-8">
                         <motion.div
                             initial="hidden"
                             animate={isInView ? "visible" : "hidden"}
                             variants={staggerContainer}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 pt-0 md:pt-12 pb-12"
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-0 lg:pt-12 pb-12"
                         >
                             {items.map((value) => {
                                 const IconComponent = iconMap[value.icon];
                                 return (
                                     <motion.div key={value.id} variants={staggerItem}>
-                                        <Card hover className="h-full border-none shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 bg-white p-8">
+                                        <Card hover className="h-full border-none shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 bg-white p-6 md:p-8">
                                             <div className="flex items-start justify-between mb-6">
                                                 <div className="p-3 bg-[var(--color-primary)]/10 rounded-full">
                                                     <span className="text-2xl text-[var(--color-primary)]">

@@ -32,7 +32,8 @@ export const TeamKPIs: React.FC = () => {
 
     useEffect(() => {
         if (isInView && !startCounting) {
-            setStartCounting(true);
+            const timer = setTimeout(() => setStartCounting(true), 0);
+            return () => clearTimeout(timer);
         }
     }, [isInView, startCounting]);
 

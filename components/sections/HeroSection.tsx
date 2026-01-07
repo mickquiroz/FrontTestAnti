@@ -33,18 +33,18 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Content centered in Container */}
-            <div className="relative z-10 w-full">
-                <Container>
-                    <div className="max-w-xl">
+            <div className="relative z-10 w-full h-full flex items-center justify-center">
+                <Container className="flex flex-col items-center text-center">
+                    <div className="max-w-4xl mx-auto">
                         <motion.div
                             initial="hidden"
                             animate="visible"
                             variants={fadeIn}
-                            className="space-y-8"
+                            className="space-y-8 flex flex-col items-center"
                         >
                             <motion.h1
                                 variants={slideUp}
-                                className="text-white leading-[1.1] drop-shadow-md"
+                                className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] drop-shadow-md"
                             >
                                 {title}{" "}
                                 <span className="text-[var(--color-accent)]">
@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
 
                             <motion.p
                                 variants={slideUp}
-                                className="text-lg md:text-xl text-white/95 font-medium leading-relaxed max-w-lg"
+                                className="text-base sm:text-lg md:text-xl text-white/95 font-medium leading-relaxed max-w-2xl mx-auto"
                             >
                                 {subtitle}
                             </motion.p>

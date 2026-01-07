@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { siteData } from "@/lib/constants/siteData";
+import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Container } from "@/components/ui/Container";
 
@@ -59,20 +60,20 @@ export const Navbar: React.FC = () => {
                 : "bg-white py-5 shadow-sm"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <a href="/" className="flex items-center group">
+                    <Link href="/" className="flex items-center group">
                         <span className="text-3xl font-extrabold text-[var(--color-primary)] tracking-tight group-hover:opacity-90 transition-opacity">
                             SCL
                         </span>
                         <span className="text-3xl font-bold text-[var(--color-accent)] ml-2 group-hover:opacity-90 transition-opacity">
                             Consultores
                         </span>
-                    </a>
+                    </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-12">
+                    <div className="hidden md:flex items-center gap-x-8 lg:gap-x-12">
                         {siteData.navigation.map((item) => {
                             const isAnchor = item.href.startsWith("/#");
                             const sectionId = isAnchor ? item.href.substring(2) : "";
@@ -141,7 +142,7 @@ export const Navbar: React.FC = () => {
                         </div>
                     </div>
                 )}
-            </div>
+            </Container>
         </nav>
     );
 };
